@@ -188,7 +188,7 @@ call psp_taller_upd
 		,'Testupd'						-- i_user_mod 					varchar(25),
 		,2 								-- i_estado 					int
 )
-
+-- C:\xampp\htdocs\Sites\exam\querys.sql
 call psp_taller_upd(?,?,?,?,?,?,?,?,?,?)
 
 
