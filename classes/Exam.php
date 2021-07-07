@@ -114,10 +114,23 @@ if ($deldata) {
 	}
 
   public function getEstados(){		
-    $query = "call psp_estados(1,null);";
+    //$query = "call psp_estados(1,null);";
+    $query = "select * from tbl_cat_estados;";
     $getData = $this->db->select($query);    
+    
     return $getData;
 	}
+
+    //============================================================================
+    // obtener los tipos de taller para el combo
+    //============================================================================
+    public function getTiposTaller(){
+
+      $query = "SELECT  * from tbl_tipo_taller;";      
+      $getData = $this->db->select($query);    
+      return $getData;
+   }
+
 }
 
 

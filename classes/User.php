@@ -170,6 +170,22 @@ class User{
                   return $msg;
                 } 
     }
+
+
+
+
+    public function admintedExtension($extension)
+    {
+      $extensions = preg_split("/;/",$adminted_exte);
+      foreach ($extensions as &$ext) {
+
+        if (str_contains($extension, $ext))
+        {
+          return true;
+        }        
+      }
+      return false;
+    }
 }
 
 

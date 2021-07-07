@@ -28,7 +28,7 @@ class Admin{
     	Session::set("adminLogin", true);
     	Session::set("adminUser", $value['adminUser']);
     	Session::set("adminId", $value['adminId']);
-    	header("Location:index.php");
+    	header("Location:index2.php");
 
     }else{
     	$msg = "<span class='error'>UserName or Password Not Matched !  </span>";

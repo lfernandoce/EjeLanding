@@ -28,11 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                $mensaje_taller            = $_POST['mensaje'];
                $taller_link_acceso        = $_POST['linkacceso'];
                $taller_codigo_acceso      = $_POST['codigoacceso'];
-               $estado_descripcion        = $_POST['selestado'];
-               $taller_id                 = $_POST['taller_id'];
+               $estado_descripcion        = $_POST['selestado'];               
                $taller_tipo               = $_POST['tipotaller'];
                $name_file_saved = $ta->getSavedNameFile();
-               $upd = $ta->updateTaller($nombre_taller,$mensaje_taller,$taller_link_acceso,$taller_codigo_acceso,$estado_descripcion,$taller_id,$name_file_saved,$taller_tipo);
+               $upd = $ta->createTaller($nombre_taller,$mensaje_taller,$taller_link_acceso,$taller_codigo_acceso,$estado_descripcion,$name_file_saved,$taller_tipo);
                
                $_resultado=$upd;
                
@@ -53,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <div class="card-content green-text">
                 <h3 class="card-title">Exito!.. </h3>
                     </br>
-                    <h5 class="center"> Actualizacion realizada! </h5>
+                    <h5 class="center">Se genero un nuevo taller! </h5>
               </div>
               <div class="row center">
                     <a class="waves-effect waves-light btn-large pulse" href="index2.php">Aceptar</a>
@@ -72,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <div class="card-content red-text ">
                 <h3>Error!.. </h1>
                     </br>                    
-                    <h5> Actualizacion NO realizada! </h5>
+                    <h5>No fue posible resitrar un nuevo taller! </h5>
                     <p> <?php echo $_resultado; ?> </p>
                                     
               </div>

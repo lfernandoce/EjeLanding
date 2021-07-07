@@ -91,6 +91,11 @@
     padding: 20px;
   }
   
+  .file-center-image{
+    margin: auto;
+    
+  }
+
   .remove-image {
     /*width: 200px;*/
     width: 100%;

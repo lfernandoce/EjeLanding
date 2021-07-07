@@ -24,11 +24,18 @@ Class Database{
 		return false;
 	}
  }
-	
+ 	public function connectDBclose()
+	 {
+		//$mysqli->close();
+		$this->link->close();
+	 }
+
 	// Select or Read data
 	public function select($query){
-		$result = $this->link->query($query) or die($this->link->error.__LINE__);
+		
+		$result = $this->link->query($query) or die($this->link->error.__LINE__);		
 		if($result->num_rows > 0){
+			
 			return $result;
 		} else {
 			return false;

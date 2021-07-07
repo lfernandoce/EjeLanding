@@ -27,14 +27,14 @@ public static function checkAdminSession(){
 	  public static function checkAdminLogin(){
 	 	self::init();
 	 	if (self::get("adminLogin") == true) {
-	 		header("Location:index.php");
+	 		header("Location:index2.php");
 	 	}
 	 }
 
 	 public static function checkSession(){
 	 	if (self::get("login") == false) {
 	 		self::destroy();
-	 		header("Location:index.php");
+	 		header("Location:index2.php");
 	 	}
 	 }
 

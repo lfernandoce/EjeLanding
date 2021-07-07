@@ -8,28 +8,26 @@ if (isset($_GET['id'])) {
 }
 $talleres = $exm->getTaller($number);
 $estados= $exm->getEstados();
+$tipos_taller = $exm->getTiposTaller();
 ?>
 	<div class="section no-pad-bot" id="index-banner">
-    	<div class="container">
-      		<br><br>
-      		<h2 class="header center   orange-text "><?php echo $talleres["taller_nombre"]; ?></h1>
-    	</div>
+    	        <div class="container">
+      		        <br><br>
+      		        <h2 class="header center   orange-text "><?php echo $talleres["taller_nombre"]; ?></h1>
+    	        </div>
   	</div>
 	<div class="container">
 	  	<div class="row">			
   			<div class="col s8 m8">
             
-                                <form action="editPst.php" method="post" class="col s12 offset-s3" enctype="multipart/form-data">
-		                
-
+                                <form id="formulario" action="editPst.php" method="post" class="col s12 offset-s3" enctype="multipart/form-data">
                                         <div class="input-field">                      
                                                 <input placeholder="Taller" name="taller" type="text" id="taller" class="validate" value="<?php echo $talleres["taller_nombre"]; ?>">
                                                 <label for="taller">Taller</label>
                                         </div>
-
                                         <div class="input-field">                      
-                                                <input placeholder="Definicion" name="nombre" type="text" id="nombre" class="validate" value="<?php echo $talleres["taller_mensaje"]; ?>">
-                                                <label for="nombre">Mensje descriptivo</label>
+                                                <input placeholder="Definicion" name="mensaje" type="text" id="mensaje" class="validate" value="<?php echo $talleres["taller_mensaje"]; ?>">
+                                                <label for="mensaje">Mensje descriptivo</label>
                                         </div>
                                         <div class="input-field">                      
                                                 <input placeholder="Link de acceso" name="linkacceso" type="text" id="linkacceso" class="validate"value="<?php echo $talleres["taller_link_acceso"]; ?>">
@@ -39,6 +37,26 @@ $estados= $exm->getEstados();
                                                 <input placeholder="Codigo de acceso" name="codigoacceso" type="text" id="codigoacceso" class="validate"value="<?php echo $talleres["taller_codigo_acceso"]; ?>">
                                                 <label for="codigoacceso">Codigo de acceso</label>
                                         </div>
+                                        
+
+                                        <div class="input-field">                                        
+                                                <select id="tipotaller" name="tipotaller">
+                                                <option value="" disabled selected>Definir Tipo</option>
+                                                <?php 
+                                                        while ($result_tipo = $tipos_taller->fetch_assoc()) {                                                        
+                                                ?>
+                                                <option <?php if($talleres["taller_tipo"]==$result_tipo['id_tipo'])
+                                                                                {
+                                                                                        echo 'selected';
+                                                                                }
+                                                                                
+                                                                ?> value="<?php echo $result_tipo['id_tipo'];?>"><?php echo $result_tipo['tipo_descripcion'];?></option>
+                                                
+                                                <?php } ?>
+                                                </select>
+                                                <label>Tipo</label>
+                                        </div>       
+
                                         <div class="input-field">                                        
                                                 <select id="selestado" name="selestado">
                                                 <option value="" disabled selected>Definir estado</option>
@@ -62,7 +80,8 @@ $estados= $exm->getEstados();
                                                         <div class="file-upload">
                                                                 <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Agregar Imagen</button>
                                                                 <div class="image-upload-wrap">
-                                                                        <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                                                        <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
+                                                                        <input id="image" name="image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
                                                                         <div class="drag-text">
                                                                                 <h4>Soltar Imagen</h4>
                                                                         </div>
@@ -81,21 +100,41 @@ $estados= $exm->getEstados();
 
                                         <div class="input-field"> 
                                                 <div class="row center">
-                                                        <input type="submit" name="tallerupdate" id="tallerupdate" class="waves-effect waves-light btn-large orange " value="Aceptar">                                                        
+                                                        <input type="submit" name="tallerupdate" id="tallerupdate" class="waves-effect waves-light btn-large orange modal-trigger"data-target="modal1" value="Aceptar">                                                        
                                                 </div>  
                                         </div>
+                                        <div id="hidenZone">
+                                                <input id="taller_id" name="taller_id" type="hidden" value="<?php echo $talleres['taller_id'];?>">
+                                        </div>
+
+                                        <div class="input-field">
+                                                <div class="row center">
+                                                        <h1 id="response">
+
+                                                        </h1>
+                                                </div>
+                                        </div>
                                 </form>
+
+
+                                  <!-- Modal Trigger -->
+  
+
+
 			</div>		
 		</div>
-  	</div>         
+  	</div>      
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+        </div>   
 </div>
-
-
-
-
-
-
-  
 <?php include 'inc/footer2.php'; ?>
 
 <!-- <?php include 'inc/header.php'; ?>
