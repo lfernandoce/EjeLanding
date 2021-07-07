@@ -1,4 +1,37 @@
 use db_examen;
+-- drop table tbl_cat_estados
+create table tbl_cat_estados
+(
+	estado_id int not null auto_increment primary key,
+    estado_descripcion varchar(100),
+    estado_fecha datetime
+);
+
+insert into tbl_cat_estados(estado_descripcion,estado_fecha)	values ('Activo',now());
+insert into tbl_cat_estados(estado_descripcion,estado_fecha)	values ('Inactivo',now());
+insert into tbl_cat_estados(estado_descripcion,estado_fecha)	values ('Suspendido',now());
+
+DELIMITER $$
+create procedure psp_estados
+(
+	i_operacion int,
+    i_id_estado int
+)
+begin
+	if i_operacion = 1 then    
+		select * from tbl_cat_estados;
+    end if;
+    
+    if i_operacion = 2 then    
+		select * from tbl_cat_estados where estado_id = i_id_estado;
+    end if;
+end$$
+-- todos
+call psp_estados(1,null);
+-- uno solo
+call psp_estados(2,1);
+select * from tbl_cat_estados;
+
 drop table tbl_taller;
 create table tbl_taller
 (

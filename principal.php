@@ -33,6 +33,7 @@ $talleres = $exm->getTalleres();
 						<br></br>
 						<p>Codigo de acceso: <?php echo $result['taller_codigo_acceso']; ?></p>
 						
+						
 						<!-- ELEMENTOS HOVER-->
 						<div class="fixed-action-btn">
 						<a class="btn-floating btn-large red" >

@@ -112,6 +112,12 @@ if ($deldata) {
     $result = $getData->fetch_assoc();
     return $result;
 	}
+
+  public function getEstados(){		
+    $query = "call psp_estados(1,null);";
+    $getData = $this->db->select($query);    
+    return $getData;
+	}
 }
 
 

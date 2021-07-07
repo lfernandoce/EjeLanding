@@ -29,65 +29,40 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Login</title>
 
-  <!-- CSS  -->
+  <!-- CSS  
+  
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  -->
+  <link href="css/MaterialIcons/icon.css" rel="stylesheet">  
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/functions.css">
 	<script src="js/jquery.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/uploadimage.js"></script>
+	<script src="js/functions.js"></script>
+
+  <script class="jsbin" src="js/jquerymin/jquery.min.js"></script>
+  
+
   <script>
-          document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.fixed-action-btn');
-            var instances = M.FloatingActionButton.init(elems, options);
-          });
+          //img carga
+          //function readURL(input) {
+          //  if (input.files && input.files[0]) {
+          //      var reader = new FileReader();
 
-          // Or with jQuery
+          //      reader.onload = function (e) {
+          //          $('#blah')
+          //              .attr('src', e.target.result);
+          //      };
 
-          $(document).ready(function(){
-            $('.fixed-action-btn').floatingActionButton();
-          });
-
-
-          document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.fixed-action-btn');
-            var instances = M.FloatingActionButton.init(elems, {
-              direction: 'left'
-            });
-          });
-
-          
-          
-          //Modal
-            
-            document.addEventListener('DOMContentLoaded', function() {
-              var elems = document.querySelectorAll('.modal');
-              var instances = M.Modal.init(elems, options);
-            });
-
-            // Or with jQuery
-
-            $(document).ready(function(){
-              $('.modal').modal();
-            });
-          //Modal
-          
-
-          // select list
-          document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('select');
-            var instances = M.FormSelect.init(elems, options);
-          });
-
-          // Or with jQuery
-
-          $(document).ready(function(){
-            $('select').formSelect();
-          });
-          // select list
-
+          //      reader.readAsDataURL(input.files[0]);
+          // }
+        //}
+          //img carga          
   </script>
 </head>
 <body>
@@ -152,5 +127,9 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 		        <span class="orange-text" style="float: right;color: #888;">Bienvenido <strong><?php echo Session::get('name') ; ?></strong></span>
 		<?php } ?>
     <!--fin saludo-->
+
+
+    
+
   </nav>
   
