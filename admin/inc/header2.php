@@ -24,24 +24,48 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 	<meta http-equiv="no-cache">
 	<meta http-equiv="Expires" content="-1">
 	<meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 	<link rel="stylesheet" href="css/admin.css">
+    <link href="../css/MaterialIcons/icon.css" rel="stylesheet">  
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script class="jsbin" src="../js/jquerymin/jquery.min.js"></script>
+
+
+	<!--<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/functions.css">
+	
+	<script src="js/main.js"></script>
+	<script src="js/uploadimage.js"></script>
+	<script src="js/functions.js"></script> -->
+
+  
 </head>
 <body>
+
+<?php 
+	if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+		Session::destroy();
+		header("Location:login.php");
+		exit();
+	}
+	 ?>
+
+
 
 <nav class="light-blue darken-4" role="navigation">
     <ul>    
     </ul>
 
 
-    <div class="nav-wrapper container"><a id="logo-container" href="<?php
-                                                                          $login = Session::get("login");
-                                                                          if ($login == true) { 
-                                                                            echo "Principal.php";
-                                                                          }
-                                                                          else{
-                                                                            echo "index2.php";
-                                                                          }?>" class="brand-logo">Logo</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="" class="brand-logo">Logo</a>
       <ul class="right hide-on-med-and-down">
+
+      <li><a href="index.php">Home</a></li>
+			<li><a href="users.php">Manage User</a></li>
+			<li><a href="quesadd.php">Add Ques</a></li>
+			<li><a href="queslist.php">Ques List</a></li>
+			<li><a href="?action=logout">Logout</a></li>
         <!-- <li><a href="#">Navbar Link</a></li> -->
         <!--Menu de opciones desktop-->
         <?php

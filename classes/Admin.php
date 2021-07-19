@@ -28,10 +28,10 @@ class Admin{
     	Session::set("adminLogin", true);
     	Session::set("adminUser", $value['adminUser']);
     	Session::set("adminId", $value['adminId']);
-    	header("Location:index2.php");
+    	header("Location:index.php");
 
     }else{
-    	$msg = "<span class='error'>UserName or Password Not Matched !  </span>";
+    	$msg = "<span class='error'>UserName or Password Not Matched ! 2 </span>";
     	return $msg;
     }
 

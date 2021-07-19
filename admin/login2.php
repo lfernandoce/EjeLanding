@@ -1,6 +1,6 @@
 <?php 
     $filepath = realpath(dirname(__FILE__));
-	include_once ($filepath.'/inc/loginheader.php');
+	include_once ($filepath.'/inc/loginheader2.php');
 	include_once ($filepath.'/../classes/Admin.php');
 	$ad = new Admin();
 ?>
@@ -11,35 +11,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
   ?>
-<div class="main">
-<h1>Admin Login</h1>
-<div class="adminlogin">
-	<form action="" method="post">
-		<table>
-			<tr>
-				<td>Username</td>
-				<td><input type="text" name="adminUser"/></td>
-			</tr>
-			<tr>
-				<td>Password</td>
-				<td><input type="password" name="adminPass"/></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" name="login" value="Login"/></td>
-			</tr>
 
-			<tr>
-				<td colspan="2">
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center   orange-text ">Login</h1>
+    </div>
+  </div>
+
+<div class="container">
+    <div class="section">
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s8 m8">                   
+              <form action="" method="post" class="col s12 offset-s3">
+                <div class="input-field">                                              
+						<input placeholder="Username" id="adminUser" type="text" name="adminUser" class ="validate"/>
+						<label for="adminUser">Username</label>
+                </div>
+                <div class="input-field">                                            
+                        <input placeholder="Contraseña" name="adminPass" type="password" id="adminPass" class="validate">
+                        <label for="adminPass">Contraseña</label>					
+                </div>
+                <div class="row center">
+                        <input type="submit" name="login" value="Login" id="login" class="btn-large waves-effect waves-light orange">
+						<!-- <input type="submit" name="login" value="Login"/> -->
+                </div>       				
+				<div class="input-field">                                            
+					<div class="row center red-text">                  
 					<?php 
-					if (isset($adminData)) {
-						echo $adminData;
-					}
-					 ?>
-				</td>
-			</tr>
-		</table>
-	</from>
-</div>
-</div>
-<?php include 'inc/footer.php'; ?>
+						if (isset($adminData)) {
+							echo $adminData;
+						}
+						?>                  
+					</div>
+                </div>   
+              </form>                          
+        </div>    
+      </div>
+    </div>
+    <br><br>
+  </div>
+
+
+
+
+
+
+
+
+<?php include 'inc/footer2.php'; ?>

@@ -2,8 +2,6 @@
 -- 1. Verificar si existe directorio y crearlo
 -- 2. nuevos sp para separar operaciones
 -- 3. configuracion de rutas desde archivo config
-
-
 use db_examen;
 -- drop table tbl_cat_estados
 create table tbl_cat_estados
@@ -12,11 +10,9 @@ create table tbl_cat_estados
     estado_descripcion varchar(100),
     estado_fecha datetime
 );
-
-insert into tbl_cat_estados(estado_descripcion,estado_fecha)	values ('Activo',now());
-insert into tbl_cat_estados(estado_descripcion,estado_fecha)	values ('Inactivo',now());
-insert into tbl_cat_estados(estado_descripcion,estado_fecha)	values ('Suspendido',now());
-
+    insert into tbl_cat_estados(estado_descripcion,estado_fecha)	values ('Activo',now());
+    insert into tbl_cat_estados(estado_descripcion,estado_fecha)	values ('Inactivo',now());
+    insert into tbl_cat_estados(estado_descripcion,estado_fecha)	values ('Suspendido',now());
 DELIMITER $$
 create procedure psp_estados
 (
@@ -38,7 +34,6 @@ call psp_estados(1,null);
 call psp_estados(2,1);
 select * from tbl_cat_estados;
 
-
 -- ------------------------------------------------------------------------------
 -- Generar Nombre Aleatorio
 -- -------------------------------------------------------------------------------
@@ -55,8 +50,9 @@ create table tbl_tipo_taller
 insert into tbl_tipo_taller (tipo_descripcion) values('TIPO 1');
 insert into tbl_tipo_taller (tipo_descripcion) values('TIPO 2');
 
-SELECT  * from tbl_tipo_taller;
-select * from tbl_taller
+-- -------------------------------------------------------------------------------
+-- Tipo de taller
+-- -------------------------------------------------------------------------------
 DELIMITER $$
 create procedure psp_tipo_taller
 (
