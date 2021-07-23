@@ -2,7 +2,7 @@
 -- 1. Verificar si existe directorio y crearlo
 -- 2. nuevos sp para separar operaciones
 -- 3. configuracion de rutas desde archivo config
-use db_examen;
+use db_talleres;
 -- drop table tbl_cat_estados
 create table tbl_cat_estados
 (
@@ -113,7 +113,7 @@ BEGIN
     -- Operacion para insertar registros en tabla tbl_taller
     -- ==========================================================
    	if i_operacion = 1 then 
-		INSERT INTO db_examen.tbl_taller(taller_nombre  ,taller_tipo     ,taller_mensaje  ,taller_link_acceso  ,taller_codigo_acceso  ,taller_imagen  ,estado,user_ing,fecha_ing)
+		INSERT INTO db_talleres.tbl_taller(taller_nombre  ,taller_tipo     ,taller_mensaje  ,taller_link_acceso  ,taller_codigo_acceso  ,taller_imagen  ,estado,user_ing,fecha_ing)
 								  values(i_taller_nombre,i_taller_tipo   ,i_taller_mensaje,i_taller_link_acceso,i_taller_codigo_acceso,i_taller_imagen,1     ,i_user_ing,NOW());
     end if;
 END$$;
@@ -157,7 +157,7 @@ BEGIN
     -- Operacion para modificar registros en tabla tbl_taller
     -- ==========================================================
 	if i_operacion = 1 then
-		update db_examen.tbl_taller 
+		update db_talleres.tbl_taller 
 			set taller_nombre		=i_taller_nombre            
             ,taller_tipo			=i_taller_tipo
             ,taller_mensaje			=i_taller_mensaje
@@ -193,7 +193,7 @@ call psp_taller_upd(?,?,?,?,?,?,?,?,?,?)
 SELECT * FROM tbl_taller;
 taller_imagen
 
-select * from db_examen.tbl_taller;
+select * from tbl_taller;
 
 
 select * from tbl_taller
@@ -234,7 +234,7 @@ BEGIN
     -- Operacion para modificar registros en tabla tbl_taller
     -- ==========================================================
 	if i_operacion = 3 then
-		update db_examen.tbl_taller 
+		update db_talleres.tbl_taller 
 			set taller_nombre		=i_taller_nombre            
             ,taller_mensaje			=i_taller_mensaje
             ,taller_link_acceso		=i_taller_link_acceso

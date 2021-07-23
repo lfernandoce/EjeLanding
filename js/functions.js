@@ -65,3 +65,13 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Media: imagenes responsibas
+
+
+
+
+//============================================================================
+//NavBar-dropdown
+$(document).ready(function(){
+  $(".dropdown-trigger").dropdown({ hover: true });
+});
+
